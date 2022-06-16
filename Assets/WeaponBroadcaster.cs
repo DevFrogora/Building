@@ -1,18 +1,21 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using System; //IMPORTANT
 
 public class WeaponBroadcaster : MonoBehaviour
 {
-    // Start is called before the first frame update
-    void Start()
+    public static WeaponBroadcaster instance;
+
+    public event Action WeaponPick,WeaponDrop;
+
+    private void Awake()
     {
-        
+        instance = this;
     }
 
-    // Update is called once per frame
-    void Update()
+    public void weaponPick()
     {
-        
+        WeaponPick?.Invoke();
     }
 }
