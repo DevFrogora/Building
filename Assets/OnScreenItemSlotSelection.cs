@@ -3,9 +3,8 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 
-public class WeaponSlotActive : MonoBehaviour
+public class OnScreenItemSlotSelection : MonoBehaviour
 {
-
     public Image slot1Image;
     public Image slot2Image;
 
@@ -37,5 +36,4 @@ public class WeaponSlotActive : MonoBehaviour
     {
         BagInventory.instance.ActiveSlot2(!BagInventory.instance.activeSlot2);
     }
-
 }
