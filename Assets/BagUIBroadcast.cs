@@ -2,9 +2,10 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using System;
-public class UIBroadcast : MonoBehaviour
+
+public class BagUIBroadcast : MonoBehaviour
 {
-    public static UIBroadcast instance;
+    public static BagUIBroadcast instance;
     private void Awake()
     {
         instance = this;

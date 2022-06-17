@@ -12,8 +12,8 @@ public class WeaponSlotActive : MonoBehaviour
 
     private void Start()
     {
-        UIBroadcast.instance.slot1AssultAdded += SetSlot1;
-        UIBroadcast.instance.slot2AssultAdded += SetSlot2;
+        BagUIBroadcast.instance.slot1AssultAdded += SetSlot1;
+        BagUIBroadcast.instance.slot2AssultAdded += SetSlot2;
 
     }
 
@@ -27,15 +27,15 @@ public class WeaponSlotActive : MonoBehaviour
         slot2Image.sprite = item.GetComponent<IInventoryItem>().spriteImage;
     }
 
-    public void SlotActive1()
-    {
-        BagInventory.instance.ActiveSlot1(true);
 
+    public void Slot1Clicked()
+    {
+        BagInventory.instance.ActiveSlot1(!BagInventory.instance.activeSlot1);
     }
 
-    public void SlotActive2()
+    public void Slot2Clicked()
     {
-        BagInventory.instance.ActiveSlot2(true);
+        BagInventory.instance.ActiveSlot2(!BagInventory.instance.activeSlot2);
     }
 
 }

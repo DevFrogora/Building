@@ -39,18 +39,28 @@ public class BagInventory : MonoBehaviour
 
     public bool activeSlot1;
     public bool activeSlot2;
+    public bool activeSlot3;
+
 
 
     public void ActiveSlot1(bool _activeSlot1)
     {
         activeSlot1 = _activeSlot1;
-        activeSlot2 = !_activeSlot1;
+        if (_activeSlot1)
+        {
+            activeSlot2 = false;
+            activeSlot3 = false;
+        }
 
     }
     public void ActiveSlot2(bool _activeSlot2)
     {
         activeSlot2 = _activeSlot2;
-        activeSlot1 = !_activeSlot2;
+        if(_activeSlot2)
+        {
+            activeSlot1 = false;
+            activeSlot3 = false;
+        }
 
     }
 
@@ -66,7 +76,7 @@ public class BagInventory : MonoBehaviour
         //}
         if(weapon.GetComponent<m416>() )
         {
-            UIBroadcast.instance.Slot1AssultAdded(weapon);
+            BagUIBroadcast.instance.Slot1AssultAdded(weapon);
             slot1.assultPrefab = weapon;
         }
     }
@@ -107,7 +117,7 @@ public class BagInventory : MonoBehaviour
         //}
         if (weapon.GetComponent<m416>())
         {
-            UIBroadcast.instance.Slot2AssultAdded(weapon);
+            BagUIBroadcast.instance.Slot2AssultAdded(weapon);
             slot2.assultPrefab = weapon;
         }
     }
