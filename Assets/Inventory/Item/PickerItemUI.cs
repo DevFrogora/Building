@@ -17,15 +17,37 @@ public class PickerItemUI : MonoBehaviour
 
         if (itemPrefab.GetComponent<m416>())
         {
-            if (BagInventory.instance.activeSlot1)
+            if(!BagInventory.instance.activeSlot1 && !BagInventory.instance.activeSlot2)
             {
-                // Cloned it and Destory it or pickup the this prefab;
-                BagInventory.instance.SetSlot1Assult(itemPrefab);
+                if (BagInventory.instance.slot1.assultPrefab == null && BagInventory.instance.slot1.assultPrefab == null)
+                {
+                    BagInventory.instance.SetSlot1Assult(itemPrefab);
+
+                }else if (BagInventory.instance.slot1.assultPrefab != null && BagInventory.instance.slot2.assultPrefab == null)
+                {
+                    BagInventory.instance.SetSlot2Assult(itemPrefab); // equip the item
+                                                           
+                }
+                else if (BagInventory.instance.slot1.assultPrefab != null && BagInventory.instance.slot2.assultPrefab != null)
+                {
+                    BagInventory.instance.SetSlot1Assult(itemPrefab); // equip the item
+                                                                      // drop the item of slot 1
+                }
             }
-            if (BagInventory.instance.activeSlot2)
+            else
             {
-                BagInventory.instance.SetSlot2Assult(itemPrefab);
+                if (BagInventory.instance.activeSlot1)
+                {
+                    // Cloned it and Destory it or pickup the this prefab;
+                    BagInventory.instance.SetSlot1Assult(itemPrefab);
+                }
+                if (BagInventory.instance.activeSlot2)
+                {
+                    BagInventory.instance.SetSlot2Assult(itemPrefab);
+                }
             }
+
+
         }
 
     }
