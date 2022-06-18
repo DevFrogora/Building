@@ -24,13 +24,22 @@ public class OnScreenItemSlotSelection : MonoBehaviour
         }
         else
         {
+            Debug.Log("WeaponOnscreenSlot1");
             slot1Image.sprite = item.GetComponent<IInventoryItem>().spriteImage;
         }
     }
 
     void SetSlot2(GameObject item)
     {
-        slot2Image.sprite = item.GetComponent<IInventoryItem>().spriteImage;
+        if (item == null)
+        {
+            slot2Image.sprite = null;
+        }
+        else
+        {
+            Debug.Log("WeaponOnscreenSlot2");
+            slot2Image.sprite = item.GetComponent<IInventoryItem>().spriteImage;
+        }
     }
 
 

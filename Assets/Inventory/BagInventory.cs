@@ -82,8 +82,8 @@ public class BagInventory : MonoBehaviour
         else {
             if (weapon.GetComponent<m416>())
             {
-                BagUIBroadcast.instance.Slot1AssultAdded(weapon);
                 slot1.assultPrefab = weapon;
+                BagUIBroadcast.instance.Slot1AssultAdded(weapon);
             }
         } 
     }
@@ -117,16 +117,20 @@ public class BagInventory : MonoBehaviour
 
     public void SetSlot2Assult(GameObject weapon)
     {
-        //if(slot1.assultPrefab != null)
-        //{
-        //    //Drop The item If destroy
-        //    Destroy(slot1.assultPrefab.gameObject);
-        //}
-        if (weapon.GetComponent<m416>())
+        if (weapon == null)
         {
+            slot2.assultPrefab = null;
             BagUIBroadcast.instance.Slot2AssultAdded(weapon);
-            slot2.assultPrefab = weapon;
         }
+        else
+        {
+            if (weapon.GetComponent<m416>())
+            {
+                slot2.assultPrefab = weapon;
+                BagUIBroadcast.instance.Slot2AssultAdded(weapon);
+            }
+        }
+
     }
 
 }

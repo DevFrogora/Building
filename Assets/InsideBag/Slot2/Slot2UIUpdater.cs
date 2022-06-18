@@ -16,6 +16,13 @@ public class Slot2UIUpdater : MonoBehaviour
 
     void SetAssult(GameObject item)
     {
-        assult.sprite = item.GetComponent<IInventoryItem>().spriteImage;
+        if (item == null)
+        {
+            assult.sprite = null;
+        }
+        else
+        {
+            assult.sprite = item.GetComponent<IInventoryItem>().spriteImage;
+        }
     }
 }
