@@ -14,6 +14,7 @@ public class BagInventory : MonoBehaviour
 
     public int MaxSize;
     public int currentSize;
+    public Transform itemParent;
 
     [System.Serializable]
     public class AssultSlot
@@ -82,6 +83,8 @@ public class BagInventory : MonoBehaviour
         else {
             if (weapon.GetComponent<m416>())
             {
+                weapon.gameObject.transform.SetParent(itemParent,false);
+                weapon.gameObject.transform.localPosition = Vector3.zero;
                 slot1.assultPrefab = weapon;
                 BagUIBroadcast.instance.Slot1AssultAdded(weapon);
             }
