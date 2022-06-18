@@ -2786,7 +2786,7 @@ GameObject:
   - component: {fileID: 156638663}
   - component: {fileID: 156638662}
   m_Layer: 5
-  m_Name: Image
+  m_Name: Slot2MagImage
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -9967,7 +9967,7 @@ MonoBehaviour:
   m_HandleRect: {fileID: 319408162}
   m_Direction: 0
   m_Value: 1
-  m_Size: 0.9999998
+  m_Size: 0.99999994
   m_NumberOfSteps: 0
   m_OnValueChanged:
     m_PersistentCalls:
@@ -15264,6 +15264,7 @@ GameObject:
   - component: {fileID: 487251429}
   - component: {fileID: 487251431}
   - component: {fileID: 487251430}
+  - component: {fileID: 487251432}
   m_Layer: 5
   m_Name: Slot1
   m_TagString: Untagged
@@ -15332,6 +15333,21 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 487251428}
   m_CullTransparentMesh: 1
+--- !u!114 &487251432
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 487251428}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 282e497fe8e544543a630715ff9b3ba9, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  assult: {fileID: 71031141}
+  ExtendedMag: {fileID: 775795451}
+  Sight: {fileID: 2002008694}
 --- !u!43 &494990092
 Mesh:
   m_ObjectHideFlags: 0
@@ -15605,7 +15621,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 1}
   m_AnchorMax: {x: 1, y: 1}
-  m_AnchoredPosition: {x: 0, y: -0.000008245799}
+  m_AnchoredPosition: {x: 0, y: -0.000036963353}
   m_SizeDelta: {x: 0, y: 300}
   m_Pivot: {x: 0, y: 1}
 --- !u!43 &509998277
@@ -22350,7 +22366,7 @@ GameObject:
   - component: {fileID: 608205378}
   - component: {fileID: 608205377}
   m_Layer: 5
-  m_Name: Image
+  m_Name: Slot2SightImage
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -27832,7 +27848,7 @@ GameObject:
   - component: {fileID: 775795452}
   - component: {fileID: 775795451}
   m_Layer: 5
-  m_Name: Image
+  m_Name: Slot1MagImage
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -52148,6 +52164,7 @@ GameObject:
   - component: {fileID: 1701489560}
   - component: {fileID: 1701489562}
   - component: {fileID: 1701489561}
+  - component: {fileID: 1701489563}
   m_Layer: 5
   m_Name: Slot2
   m_TagString: Untagged
@@ -52216,6 +52233,21 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1701489559}
   m_CullTransparentMesh: 1
+--- !u!114 &1701489563
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1701489559}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 03aabb2606746a8478bf796dc25f8937, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  assult: {fileID: 1683183499}
+  ExtendedMag: {fileID: 156638662}
+  Sight: {fileID: 608205377}
 --- !u!43 &1708527620
 Mesh:
   m_ObjectHideFlags: 0
@@ -61303,7 +61335,7 @@ GameObject:
   - component: {fileID: 2002008695}
   - component: {fileID: 2002008694}
   m_Layer: 5
-  m_Name: Image
+  m_Name: Slot1SightImage
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -61516,7 +61548,7 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 1909726079}
   m_HandleRect: {fileID: 1909726078}
   m_Direction: 0
-  m_Value: 0
+  m_Value: 1
   m_Size: 1
   m_NumberOfSteps: 0
   m_OnValueChanged:
@@ -66935,7 +66967,7 @@ MonoBehaviour:
     ModeOverride: 0
     LensShift: {x: 0, y: 0}
     GateFit: 2
-    m_SensorSize: {x: 1.776, y: 1}
+    m_SensorSize: {x: 1.7781818, y: 1}
   m_Transitions:
     m_BlendHint: 0
     m_InheritPosition: 0
@@ -67030,7 +67062,7 @@ MonoBehaviour:
     ModeOverride: 0
     LensShift: {x: 0, y: 0}
     GateFit: 2
-    m_SensorSize: {x: 1.776, y: 1}
+    m_SensorSize: {x: 1.7781818, y: 1}
   m_Transitions:
     m_BlendHint: 0
     m_InheritPosition: 0
@@ -67358,7 +67390,7 @@ MonoBehaviour:
     ModeOverride: 0
     LensShift: {x: 0, y: 0}
     GateFit: 2
-    m_SensorSize: {x: 1.776, y: 1}
+    m_SensorSize: {x: 1.7781818, y: 1}
   m_Transitions:
     m_BlendHint: 0
     m_InheritPosition: 0
@@ -67676,7 +67708,7 @@ MonoBehaviour:
     ModeOverride: 0
     LensShift: {x: 0, y: 0}
     GateFit: 2
-    m_SensorSize: {x: 1.776, y: 1}
+    m_SensorSize: {x: 1.7781818, y: 1}
   m_Transitions:
     m_BlendHint: 0
     m_InheritPosition: 0

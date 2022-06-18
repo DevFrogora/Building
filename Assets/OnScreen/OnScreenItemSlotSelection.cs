@@ -18,7 +18,14 @@ public class OnScreenItemSlotSelection : MonoBehaviour
 
     void SetSlot1(GameObject item)
     {
-        slot1Image.sprite = item.GetComponent<IInventoryItem>().spriteImage;
+        if (item == null)
+        {
+            slot1Image.sprite = null;
+        }
+        else
+        {
+            slot1Image.sprite = item.GetComponent<IInventoryItem>().spriteImage;
+        }
     }
 
     void SetSlot2(GameObject item)

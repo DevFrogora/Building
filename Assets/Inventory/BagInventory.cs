@@ -74,11 +74,18 @@ public class BagInventory : MonoBehaviour
         //    //Drop The item If destroy
         //    Destroy(slot1.assultPrefab.gameObject);
         //}
-        if(weapon.GetComponent<m416>() )
+        if (weapon == null)
         {
+            slot1.assultPrefab = null;
             BagUIBroadcast.instance.Slot1AssultAdded(weapon);
-            slot1.assultPrefab = weapon;
         }
+        else {
+            if (weapon.GetComponent<m416>())
+            {
+                BagUIBroadcast.instance.Slot1AssultAdded(weapon);
+                slot1.assultPrefab = weapon;
+            }
+        } 
     }
 
     //public void SetSlot1ExtendedMag(GameObject mag)
