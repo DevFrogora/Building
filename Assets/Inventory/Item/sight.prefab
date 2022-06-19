@@ -9,7 +9,9 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 6284396039722788610}
-  m_Layer: 0
+  - component: {fileID: 614623611901247450}
+  - component: {fileID: 1965703217647726859}
+  m_Layer: 9
   m_Name: sight
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -32,6 +34,35 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!65 &614623611901247450
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3643246737841899473}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 0.32, y: 0.21, z: 0.33}
+  m_Center: {x: 0, y: 0, z: 0}
+--- !u!114 &1965703217647726859
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3643246737841899473}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 623846349b2ba1e41b5f887405c12cea, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  id: 2
+  itemtype: 0
+  itemName: RedDot
+  itemImage: {fileID: 21300000, guid: 2cda1f7a35c6eab4fb094faf79bdf3be, type: 3}
 --- !u!1 &7658780576667841083
 GameObject:
   m_ObjectHideFlags: 0
@@ -43,7 +74,7 @@ GameObject:
   - component: {fileID: 7663912639303524117}
   - component: {fileID: 7655325151012232689}
   - component: {fileID: 7645420656867178091}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: sight_1
   m_TagString: Untagged
   m_Icon: {fileID: 0}

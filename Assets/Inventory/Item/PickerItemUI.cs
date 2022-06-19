@@ -46,8 +46,10 @@ public class PickerItemUI : MonoBehaviour
                     BagInventory.instance.SetSlot2Assult(itemPrefab);
                 }
             }
-
-
+        }
+        else if (itemPrefab.GetComponent<RedDotSight>())
+        {
+            BagInventory.instance.AddInMixItem(itemPrefab);
         }
 
     }

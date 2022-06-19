@@ -11,10 +11,26 @@ public class DropzoneDraggableItem : MonoBehaviour, IDropHandler
         if (eventData.pointerDrag.GetComponent<DraggableSlot1AssultUI>())
         {
             Debug.Log("We are Dropping Slot1 Assult");
-            GameObject item = (BagInventory.instance.slot1.assultPrefab);
-            item.transform.SetParent(transform.root.parent);
-            BagInventory.instance.SetSlot1Assult(null);
+            if(BagInventory.instance.slot1.assultPrefab != null)
+            {
+                GameObject item = (BagInventory.instance.slot1.assultPrefab);
+                item.transform.SetParent(transform.root.parent);
+                BagInventory.instance.SetSlot1Assult(null);
+            }
+        }
 
+        if (eventData.pointerDrag.GetComponent<InventoryItemUI>())
+        {
+            Debug.Log("Dropping Item From All Slot : Name: "+eventData.pointerDrag.GetComponent<InventoryItemUI>().itemPrefab.name);
+            if (BagInventory.instance.mixItem != null)
+            {
+                //GameObject item = (BagInventory.instance.mixItem.);
+                //item.transform.SetParent(transform.root.parent);
+                //BagInventory.instance.SetSlot1Assult(null);
+                BagInventory.instance.mixItem.Remove(eventData.pointerDrag.GetComponent<InventoryItemUI>().itemPrefab);
+                eventData.pointerDrag.GetComponent<InventoryItemUI>().itemPrefab.transform.SetParent(transform.root.parent);
+                Destroy(eventData.pointerDrag);
+            }
         }
     }
 }

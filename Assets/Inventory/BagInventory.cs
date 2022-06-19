@@ -57,7 +57,7 @@ public class BagInventory : MonoBehaviour
     public void ActiveSlot2(bool _activeSlot2)
     {
         activeSlot2 = _activeSlot2;
-        if(_activeSlot2)
+        if (_activeSlot2)
         {
             activeSlot1 = false;
             activeSlot3 = false;
@@ -66,7 +66,7 @@ public class BagInventory : MonoBehaviour
     }
 
 
-    public List<GameObject> AllItem = new List<GameObject>();
+    public List<GameObject> mixItem = new List<GameObject>();
 
     public void SetSlot1Assult(GameObject weapon)
     {
@@ -80,15 +80,16 @@ public class BagInventory : MonoBehaviour
             slot1.assultPrefab = null;
             BagUIBroadcast.instance.Slot1AssultAdded(weapon);
         }
-        else {
+        else
+        {
             if (weapon.GetComponent<m416>())
             {
-                weapon.gameObject.transform.SetParent(itemParent,false);
+                weapon.gameObject.transform.SetParent(itemParent, false);
                 weapon.gameObject.transform.localPosition = Vector3.zero;
                 slot1.assultPrefab = weapon;
                 BagUIBroadcast.instance.Slot1AssultAdded(weapon);
             }
-        } 
+        }
     }
 
     //public void SetSlot1ExtendedMag(GameObject mag)
@@ -129,6 +130,8 @@ public class BagInventory : MonoBehaviour
         {
             if (weapon.GetComponent<m416>())
             {
+                weapon.gameObject.transform.SetParent(itemParent, false);
+                weapon.gameObject.transform.localPosition = Vector3.zero;
                 slot2.assultPrefab = weapon;
                 BagUIBroadcast.instance.Slot2AssultAdded(weapon);
             }
@@ -136,4 +139,11 @@ public class BagInventory : MonoBehaviour
 
     }
 
+    public void AddInMixItem(GameObject item)
+    {
+        item.gameObject.transform.SetParent(itemParent, false);
+        item.gameObject.transform.localPosition = Vector3.zero;
+        mixItem.Add(item);
+        BagUIBroadcast.instance.SlotMixItemAdded(item);
+    }
 }

@@ -46,11 +46,9 @@ public class m416 : MonoBehaviour ,IInventoryItem
 
     public string Name => weaponName;
 
-    public int ItemId => id;
-
     public Sprite spriteImage => weaponImage;
 
-    int IInventoryItem.ItemId { get => id; set => id= value; }
+    public int ItemId { get => id; set => id = value; }
 
     public ItemType itemType { get => itemtype; set => itemtype = value; }
 
