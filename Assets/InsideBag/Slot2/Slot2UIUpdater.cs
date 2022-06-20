@@ -8,6 +8,7 @@ public class Slot2UIUpdater : MonoBehaviour
     public Image assult;
     public Image ExtendedMag;
     public Image Sight;
+    public Image draggableImage;
 
     private void Start()
     {
@@ -19,9 +20,12 @@ public class Slot2UIUpdater : MonoBehaviour
         if (item == null)
         {
             assult.sprite = null;
+            draggableImage.sprite = null;
+
         }
         else
         {
+            draggableImage.sprite = item.GetComponent<IInventoryItem>().spriteImage;
             assult.sprite = item.GetComponent<IInventoryItem>().spriteImage;
         }
     }

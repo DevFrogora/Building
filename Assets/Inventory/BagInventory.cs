@@ -92,6 +92,28 @@ public class BagInventory : MonoBehaviour
         }
     }
 
+    public void SetSlot1Sight(GameObject sight)
+    {
+        if (sight == null)
+        {
+            slot1.sight = null;
+            BagUIBroadcast.instance.Slot1SightAdded(sight);
+        }
+        else
+        {
+            if (sight.GetComponent<RedDotSight>())
+            {
+                sight.gameObject.transform.SetParent(itemParent, false);
+                sight.gameObject.transform.localPosition = Vector3.zero;
+                slot1.sight = sight;
+                mixItem.Remove(sight);
+                BagUIBroadcast.instance.Slot1SightAdded(sight);
+            }
+        }
+    }
+
+
+
     //public void SetSlot1ExtendedMag(GameObject mag)
     //{
     //    //if (slot1.extendedMag != null)

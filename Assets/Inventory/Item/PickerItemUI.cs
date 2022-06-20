@@ -10,6 +10,7 @@ public class PickerItemUI : MonoBehaviour
     public Image image;
 
     public GameObject itemPrefab;
+    public int itemId;
 
     public void onClick()
     {

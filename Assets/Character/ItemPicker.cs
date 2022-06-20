@@ -11,12 +11,11 @@ public class ItemPicker : MonoBehaviour
     private readonly Collider[] _colliders = new Collider[50]; // 3 collider (item ) we are checking
     [SerializeField] private int _numFound; // number of collider(item found)
 
-    public List<int> itemsIdFound = new List<int>();
-
+    //template For Picker UI // rename it later
     public Image itemUIPrefab;
     public GameObject pickerUIContainer;
 
-    public List<Image> itemsUIlist = new List<Image>();
+    public Dictionary<int,Image> itemsUIlist = new Dictionary<int,Image>();
 
     int previousItemCount;
     private void Update()
@@ -32,25 +31,29 @@ public class ItemPicker : MonoBehaviour
                 for (int i = 0; i < _numFound; i++)
                 {
                     var pickerItem = _colliders[i].GetComponent<IInventoryItem>();
-                    if (itemsIdFound.Contains(pickerItem.ItemId))
+                    if (itemsUIlist.ContainsKey(pickerItem.ItemId))
                     {
 
                     }
                     else
                     {
-                        
-                        var itemUI = Instantiate(itemUIPrefab);
-                        itemUI.gameObject.transform.SetParent(pickerUIContainer.transform);
-                        itemUI.rectTransform.localScale = itemUIPrefab.transform.localScale;
-                        itemUI.rectTransform.rotation = Quaternion.identity;
-                        itemUI.GetComponent<PickerItemUI>().image.sprite = pickerItem.spriteImage;
-                        itemUI.GetComponent<PickerItemUI>().itemName.text = pickerItem.Name;
-                        itemUI.GetComponent<PickerItemUI>().itemPrefab = _colliders[i].gameObject;
+                        if(itemsUIlist.Count < _numFound)
+                        {
+                            var itemUI = Instantiate(itemUIPrefab);
+                            PickerItemUI pickedItemData= itemUI.GetComponent<PickerItemUI>();
+                            itemUI.gameObject.transform.SetParent(pickerUIContainer.transform);
+                            itemUI.rectTransform.localScale = itemUIPrefab.transform.localScale;
+                            itemUI.rectTransform.rotation = Quaternion.identity;
+                            pickedItemData.image.sprite = pickerItem.spriteImage;
+                            pickedItemData.itemName.text = pickerItem.Name;
+                            pickedItemData.itemPrefab = _colliders[i].gameObject;
+                            pickedItemData.itemId = pickedItemData.itemPrefab.GetComponent<IInventoryItem>().ItemId;
 
-                        itemsUIlist.Add(itemUI);
-                        //pickerItem.OnPickup();
-                        itemsIdFound.Add(pickerItem.ItemId);
-                        Debug.Log("From Interactor");
+                            itemsUIlist.Add(pickedItemData.itemId ,itemUI);
+
+                            Debug.Log("From Interactor");
+                        }
+
                     }
                 }
                 previousItemCount = _numFound;
@@ -67,16 +70,12 @@ public class ItemPicker : MonoBehaviour
     void clearItemFoundList()
     {
         previousItemCount = 0;
-        for (int i = 0; i < itemsUIlist.Count; i++)
+        foreach (var item in itemsUIlist)
         {
-            var item = itemsUIlist[i];
-            // Remove from list.
-            itemsUIlist.RemoveAt(i);
-
             // Destroy object.
-            Destroy(item.gameObject);
+            Destroy(item.Value.gameObject);
         }
-        itemsIdFound.Clear();
+        itemsUIlist.Clear();
     }
 
     private void OnDrawGizmos()
